@@ -1,0 +1,7 @@
+# ignore any log files
+*[Ll]og*
+
+# ignore defined folders
+.storage
+custom_components
+
