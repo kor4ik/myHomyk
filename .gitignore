@@ -5,3 +5,7 @@
 .storage
 custom_components
 
+# ignore any database files
+*.db*
+home-assistant_v2.db-shm
+home-assistant_v2.db-wal
