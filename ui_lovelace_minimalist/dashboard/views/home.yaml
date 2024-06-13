@@ -1,0 +1,125 @@
+title: "Home"
+path: home
+cards:
+  - type: vertical-stack
+    cards: 
+    - type: "custom:button-card"
+      template: "card_esh_welcome"
+      triggers_update: "input_boolean.mini_toggle"
+      variables:
+        ulm_card_esh_welcome_collapse: input_boolean.mini_toggle
+        ulm_weather: weather.forecast_home
+        entity_1:
+          nav: "house"
+          icon: "mdi:home"
+          name: "House"
+          color: "blue"
+        entity_2:
+          nav: "lights"
+          icon: "mdi:lightbulb"
+          name: "Lights"
+          color: "yellow"
+        entity_3:
+          nav: "security"
+          icon: "mdi:shield"
+          name: Secure
+          color: "green"
+        entity_4:
+          nav: "network"
+          icon: "mdi:nas"
+          name: Lab
+          color: "purple"
+        entity_5:
+          nav: "network"
+          icon: "mdi:flask"
+          name: Lab
+          color: "red"
+      
+    - type: horizontal-stack
+      cards:
+        - type: "custom:button-card"
+          template: card_person
+          # entity: person.yakov
+          variables:
+            ulm_card_person_entity: person.yakov
+            ulm_card_person_use_entity_picture: true
+            ulm_card_person_icon: mdi:face-man
+            ulm_card_person_battery: sensor.gm1903_battery_level
+            # ulm_card_person_zone1: zone.work
+        - type: "custom:button-card"
+          template: card_person
+          # entity: person.yakov
+          variables:
+            ulm_card_person_entity: person.julie
+            ulm_card_person_use_entity_picture: true
+            ulm_card_person_icon: mdi:face-woman
+            # ulm_card_person_battery: sensor.battery_iphone
+
+    - type: "custom:button-card"
+      template: card_title
+      name: Rooms
+
+    - type: horizontal-stack
+      cards:
+        - type: "custom:button-card"
+          template:
+            - card_esh_room
+            - yellow_on
+          name: Bathroom
+          icon: mdi:bathtub
+          tap_action:
+            action: navigate
+            navigation_path: "bathroom"
+          variables:
+            ulm_custom_card_esh_room_light_entity: switch.water_heater_socket_1
+            ulm_card_esh_room_light_icon_on: mdi:toggle-switch
+            ulm_card_esh_room_light_icon_off: mdi:toggle-switch-off-outline
+          label: '[[[ return "🌡️ labelToAdd" ]]]' ##'[[[ return states["sensor.room_temperature"].state + "°C" ]]]'
+        - type: "custom:button-card"
+          template:
+            - card_esh_room
+            - yellow_on
+          name: Kitchen
+          icon: mdi:silverware-fork-knife
+          tap_action:
+            action: navigate
+            navigation_path: "kitchen"
+          label: '[[[
+            var position;
+            var cover_position = states["cover.shellyplus2pm_e465b85fece4"].attributes.current_position;
+            if (cover_position == 0) {
+            var position = "closed";
+            }
+            else if (cover_position == 100) {
+            var position = "open";
+            }
+            else {
+            var position = cover_position + "%"
+            }
+            return "window " + position;
+            ]]]'
+    - type: horizontal-stack
+      cards:
+        - type: "custom:button-card"
+          template:
+            - card_esh_room
+            - yellow_on
+          name: Office
+          icon: mdi:desktop-classic
+          tap_action:
+            action: navigate
+            navigation_path: "office"
+          label: '[[[
+            var position;
+            var cover_position = states["cover.shellyplus2pm_c049ef85266c"].attributes.current_position;
+            if (cover_position == 0) {
+            var position = "closed";
+            }
+            else if (cover_position == 100) {
+            var position = "open";
+            }
+            else {
+            var position = cover_position + "%"
+            }
+            return "window " + position;
+            ]]]'

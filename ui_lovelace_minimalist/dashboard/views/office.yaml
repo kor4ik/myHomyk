@@ -1,0 +1,25 @@
+title: Office
+path: office
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: chip_back
+        variables:
+          ulm_chip_back_path: home
+
+      - type: "custom:button-card"
+        template: card_title
+        name: Office
+
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_cover
+        entity: cover.shellyplus2pm_c049ef85266c
+        variables:
+          ulm_card_cover_name: Roller
+          ulm_card_cover_enable_controls: true
+          ulm_card_cover_enable_slider: true
+          ulm_card_cver_favorite_percentage: 45
+          ulm_card_cover_color: yellow

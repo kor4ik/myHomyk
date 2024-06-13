@@ -4,10 +4,10 @@
 # ignore defined folders
 .storage
 custom_components
+themes
+www
 
 # ignore any database files
 **.db
 **.db-shm
 **.db-wal
-
-
