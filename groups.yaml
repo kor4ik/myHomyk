@@ -1,0 +1,5 @@
+rollers_livingroom:
+  name: Living Room Rollers
+  entities:
+    - !secret roller_livingroom
+    - !secret roller_kitchen

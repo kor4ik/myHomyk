@@ -1,0 +1,6 @@
+- platform: gimdow
+  name: Smart Lock
+  device_id: !secret lock_main_device_id
+  url: https://openapi.tuyaeu.com
+  client_id: !secret tuya_client_id
+  api_key: !secret tuya_api_key

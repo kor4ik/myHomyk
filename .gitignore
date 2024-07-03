@@ -1,0 +1,17 @@
+# ignore any log files
+*[Ll]og*
+
+# ignore defined folders
+.storage
+custom_components
+image
+themes
+www
+
+# ignore defined files
+secrets.yaml
+
+# ignore any database files
+**.db
+**.db-shm
+**.db-wal

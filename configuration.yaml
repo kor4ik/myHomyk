@@ -1,0 +1,31 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+lovelace:
+  dashboards:
+    db-dev:
+      mode: yaml
+      title: development
+      icon: mdi:developer-board
+      show_in_sidebar: true
+      filename: ui_lovelace_minimalist/dashboard/ui-lovelace-dev.yaml
+    db-minimalist:
+      mode: yaml
+      title: My Home
+      icon: mdi:flower
+      show_in_sidebar: true
+      filename: ui_lovelace_minimalist/dashboard/ui-lovelace.yaml
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+climate: !include climate.yaml
+lock: !include lock.yaml
+group: !include groups.yaml
+
+smartir:
+  check_updates: false

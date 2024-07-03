@@ -1,0 +1,38 @@
+- platform: gree
+  name: ac_guest
+  host: !secret ac_bedroom_04_host
+  port: 7000
+  mac: !secret ac_bedroom_04_mac
+  target_temp_step: 1
+
+- platform: gree
+  name: ac_laly
+  host: !secret ac_bedroom_03_host
+  port: 7000
+  mac: !secret ac_bedroom_03_mac
+  target_temp_step: 1
+
+- platform: gree
+  name: ac_office
+  host: !secret ac_bedroom_05_host
+  port: 7000
+  mac: !secret ac_bedroom_05_mac
+  target_temp_step: 1
+
+- platform: smartir
+  name: ac_livingroom
+  unique_id: ac_livingroom
+  device_code: 1345
+  controller_data: remote.irlivingroom
+  temperature_sensor: sensor.temperature
+  humidity_sensor: sensor.humidity
+  power_sensor: binary_sensor.ac_power
+
+- platform: smartir
+  name: ac_bedroom_main
+  unique_id: ac_bedroom_main
+  device_code: 1342
+  controller_data: remote.irbedroom
+  temperature_sensor: sensor.temperature
+  humidity_sensor: sensor.humidity
+  power_sensor: binary_sensor.ac_power
