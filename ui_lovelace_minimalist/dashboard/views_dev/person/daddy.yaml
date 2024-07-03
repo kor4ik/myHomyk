@@ -1,0 +1,44 @@
+title: Yakov
+path: daddy
+cards:
+- type: vertical-stack
+  cards:
+  - type: custom:button-card
+    template: chip_back
+    variables:
+      ulm_chip_back_path: home
+  - type: custom:button-card
+    template: card_title
+    name: Yakov
+        
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: card_battery
+        entity: sensor.gm1903_battery_level
+        variables:
+          ulm_card_battery_battery_state_entity_id: sensor.gm1903_battery_state
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 50
+          ulm_card_battery_name: OnePlus 7
+      - type: custom:button-card
+        template: card_script
+        variables:
+          ulm_card_script_title: Find my phone
+          ulm_card_script_icon: mdi:cellphone-marker
+        styles:
+          icon:
+            - color: "rgba(var(--color-yellow),1)"
+          label:
+            - align-self: "center"
+            - font-size: "14px"
+            - filter: "opacity(100%)"
+          img_cell:
+            - background-color: "rgba(var(--color-yellow), 0.2)"
+        tap_action:
+          action: call-service
+          service: script.find_my_phone
+              
+
+
+

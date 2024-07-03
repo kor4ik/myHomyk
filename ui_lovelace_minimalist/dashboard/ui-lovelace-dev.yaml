@@ -11,3 +11,10 @@ views:
   - !include views/room/bedroom-04.yaml
   - !include views/room/bedroom-05.yaml
   - !include views/room/livingroom.yaml
+  - !include views_dev/home.yaml
+  - !include views_dev/person/daddy.yaml
+  - !include views_dev/room/bedroom-01.yaml
+  - !include views_dev/room/bedroom-03.yaml
+  - !include views_dev/room/bedroom-04.yaml
+  - !include views_dev/room/bedroom-05.yaml
+  - !include views_dev/room/livingroom.yaml
