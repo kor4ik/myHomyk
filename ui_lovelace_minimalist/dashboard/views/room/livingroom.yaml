@@ -46,3 +46,11 @@ cards:
             [[[
               return entity.state.charAt(0).toUpperCase() + entity.state.slice(1);
             ]]]
+      
+      - type: "custom:button-card"
+        template: card_light
+        entity: !secret light_trees
+        variables:
+          ulm_card_light_name: Garden Lights
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
