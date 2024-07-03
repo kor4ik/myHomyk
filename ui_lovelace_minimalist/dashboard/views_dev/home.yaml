@@ -59,7 +59,7 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Devices
-      # devices lock water_heater #
+      # devices lock & water_heater #
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -154,7 +154,7 @@ cards:
             label: Main
           - type: "custom:button-card"
             template:
-              - card_esh_room
+              - card_esh_room_dev
               - yellow_on
             name: Office
             icon: mdi:desktop-classic
