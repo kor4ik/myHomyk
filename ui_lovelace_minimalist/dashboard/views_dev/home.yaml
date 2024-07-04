@@ -163,9 +163,11 @@ cards:
               action: navigate
               navigation_path: bedroom-05
             variables:
-              ulm_custom_card_esh_room_light_entity: !secret roller_bedroom_05
+              ulm_custom_card_esh_room_light_entity: !secret light_trees
+              ulm_custom_card_esh_room_cover_entity: !secret roller_bedroom_05
               ulm_custom_card_esh_room_light_entity_tap_action: none
               ulm_custom_card_esh_room_climate_entity: climate.ac_office
+              # ulm_card_dynamic_color: true
             label: '[[[
               var position;
               var cover_position = entity.attributes.current_position;
@@ -180,3 +182,5 @@ cards:
               }
               return "window " + position;
               ]]]'
+            triggers_update:
+              - variables.ulm_custom_card_esh_room_light_entity.state
