@@ -51,10 +51,14 @@ cards:
               # ulm_card_person_zone1: zone.work
           - type: "custom:button-card"
             template: card_person
+            tap_action:
+              action: navigate
+              navigation_path: mommy
             variables:
               ulm_card_person_entity: person.julie
               ulm_card_person_use_entity_picture: true
               ulm_card_person_icon: mdi:face-woman
+              ulm_card_person_battery: sensor.cph2399_battery_level
       # card_title devices #
       - type: "custom:button-card"
         template: card_title

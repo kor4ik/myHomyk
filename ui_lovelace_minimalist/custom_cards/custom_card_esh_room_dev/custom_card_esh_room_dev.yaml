@@ -1,3 +1,4 @@
+---
 card_esh_room_dev:
   tap_action:
     action: "more-info"
@@ -10,7 +11,6 @@ card_esh_room_dev:
   size: "20px"
   variables:
     ulm_custom_card_esh_room_light_entity: null
-    ulm_custom_card_esh_room_light_entity_tap_action: toggle
     ulm_custom_card_esh_room_climate_entity: null
     ulm_custom_card_esh_room_cover_entity: null
     ulm_card_thermostat_enable_popup: false
@@ -18,8 +18,8 @@ card_esh_room_dev:
     ulm_card_dynamic_color: false
     ulm_card_esh_room_light_icon_on: "mdi:lightbulb"
     ulm_card_esh_room_light_icon_off: "mdi:lightbulb-off"
-    ulm_card_esh_room_cover_icon_open: mdi:window-shutter-open
-    ulm_card_esh_room_cover_icon: mdi:window-shutter
+    ulm_card_esh_room_cover_icon_open: "mdi:window-shutter-open"
+    ulm_card_esh_room_cover_icon: "mdi:window-shutter"
   label: >-
     [[[
       var label_entity = variables.ulm_custom_card_esh_room_light_entity
@@ -62,7 +62,7 @@ card_esh_room_dev:
             } else if (variables.ulm_custom_card_esh_room_climate_entity && variables.ulm_custom_card_esh_room_cover_entity) {
               return "'i climate' 'n cover' 'l cover'";
             } else if (variables.ulm_custom_card_esh_room_light_entity) {
-              return "'i light' 'n n' 'l l'";
+              return "'i light' 'n light' 'l light'";
             } else if (variables.ulm_custom_card_esh_room_climate_entity) {
               return "'i climate' 'n climate' 'l climate'";
             } else if (variables.ulm_custom_card_esh_room_cover_entity) {
@@ -122,12 +122,14 @@ card_esh_room_dev:
       - margin-left: "12px"
       - margin-top: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity) {
+            if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity && variables.ulm_custom_card_esh_room_cover_entity) {
               return "8px";
             } else if (variables.ulm_custom_card_esh_room_light_entity) {
               return "12px";
             } else if (variables.ulm_custom_card_esh_room_climate_entity) {
-              return "8px";
+              return "12px";
+            } else if (variables.ulm_custom_card_esh_room_cover_entity) {
+              return "12px";
             } else {
               return "12px";
             }
@@ -175,12 +177,14 @@ card_esh_room_dev:
       - margin-left: "12px"
       - margin-bottom: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity) {
+            if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity && variables.ulm_custom_card_esh_room_cover_entity) {
               return "0px";
             } else if (variables.ulm_custom_card_esh_room_light_entity) {
               return "3px";
             } else if (variables.ulm_custom_card_esh_room_climate_entity) {
-              return "0px";
+              return "3px";
+            } else if (variables.ulm_custom_card_esh_room_cover_entity) {
+              return "3px";
             } else {
               return "3px";
             }
@@ -229,7 +233,7 @@ card_esh_room_dev:
               if (variables.ulm_custom_card_esh_room_cover_entity) {
                 return "block";
               } else {
-                return none;
+                return "none";
               }
             ]]]
   custom_fields:
@@ -257,8 +261,6 @@ card_esh_room_dev:
           - value: "off"
             icon: "[[[ return variables.ulm_card_esh_room_light_icon_off; ]]]"
         type: "custom:button-card"
-        tap_action:
-          action: "[[[ return variables.ulm_custom_card_esh_room_light_entity_tap_action; ]]]"
         template:
           - "widget_icon"
           - "ulm_actions_card"
@@ -329,7 +331,14 @@ card_esh_room_dev:
         type: "custom:button-card"
         styles:
           card:
-            - margin-top: "5px"
+            - margin-top: >-
+                [[[
+                  if  (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_cover_entity) {
+                    return "5px";
+                  } else {
+                    return "0px";
+                  }
+                ]]]
         template:
           - "widget_icon"
           - "ulm_actions_card"
@@ -350,16 +359,23 @@ card_esh_room_dev:
           ]]]
     cover:
       card:
-        entity: >
-          [[[ return variables.ulm_custom_card_esh_room_cover_entity ]]]
-        name: > 
-          [[[ return name ]]]
-        type: custom:button-card
+        entity: "[[[ return variables.ulm_custom_card_esh_room_cover_entity ]]]"
+        name: "[[[ return name ]]]"
+        type: "custom:button-card"
         styles:
           card:
-            - margin-top: 5px
+            - margin-top: >-
+                [[[
+                  if  (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity) {
+                    return "5px";
+                  } else if (variables.ulm_custom_card_esh_room_climate_entity) {
+                    return "5px";
+                  } else {
+                    return "0px";
+                  }
+                ]]]
         tap_action:
-          action: "[[[ return variables.ulm_custom_card_esh_room_light_entity_tap_action; ]]]"
+          action: "none"
         template:
           - "widget_icon"
           - "ulm_actions_card"
@@ -380,21 +396,12 @@ card_esh_room_dev:
           ]]]
         state:
           - value: "open"
-            icon: >
-              [[[ return variables.ulm_card_esh_room_cover_icon_open; ]]]
+            icon: "[[[ return variables.ulm_card_esh_room_cover_icon_open; ]]]"
             styles:
               icon:
                 - color: "rgba(var(--color-yellow), 1)"
               img_cell:
                 - background-color: >-
-                    [[[
-                      if (variables.ulm_custom_card_esh_room_cover_entity) {
-                        var color = "rgba(var(--color-yellow), 0.2)";
-                        if (color && variables.ulm_card_dynamic_color) {
-                          return 'rgba(' + color + ', 0.3)';
-                        }
-                      }
-                      return 'rgba(var(--color-yellow), 0.2)';
-                    ]]]
+                    [[[ return 'rgba(var(--color-yellow), 0.2)'; ]]]
           - value: "closed"
             icon: "[[[ return variables.ulm_card_esh_room_cover_icon; ]]]"
