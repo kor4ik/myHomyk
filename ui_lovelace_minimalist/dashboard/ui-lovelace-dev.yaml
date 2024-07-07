@@ -4,13 +4,6 @@ button_card_templates: !include_dir_merge_named "../../custom_components/ui_love
 title: "development"
 background: "var(--background-image)"
 views:
-  - !include views/home.yaml
-  - !include views/person/daddy.yaml
-  - !include views/room/bedroom-01.yaml
-  - !include views/room/bedroom-03.yaml
-  - !include views/room/bedroom-04.yaml
-  - !include views/room/bedroom-05.yaml
-  - !include views/room/livingroom.yaml
   - !include views_dev/home.yaml
   - !include views_dev/person/daddy.yaml
   - !include views_dev/room/bedroom-01.yaml
