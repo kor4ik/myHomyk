@@ -18,7 +18,7 @@ cards:
             template: card_cover
             entity: !secret roller_livingroom
             variables:
-              ulm_card_cover_name: Roller main
+              ulm_card_cover_name: Roller Main
               ulm_card_cover_enable_controls: true
               ulm_card_cover_enable_slider: true
               ulm_card_cver_favorite_percentage: 45
@@ -28,7 +28,7 @@ cards:
             template: card_cover
             entity: !secret roller_kitchen
             variables:
-              ulm_card_cover_name: Roller kitchen
+              ulm_card_cover_name: Roller Kitchen
               ulm_card_cover_enable_controls: true
               ulm_card_cover_enable_slider: true
               ulm_card_cver_favorite_percentage: 45
