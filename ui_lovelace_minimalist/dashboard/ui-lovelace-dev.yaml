@@ -7,7 +7,7 @@ views:
   - !include views/home.yaml
   - !include views/person/daddy.yaml
   - !include views/room/bedroom-01.yaml
-  - !include views/room/bedroom-02.yaml
+  - !include views/room/bedroom-03.yaml
   - !include views/room/bedroom-04.yaml
   - !include views/room/bedroom-05.yaml
   - !include views/room/livingroom.yaml
