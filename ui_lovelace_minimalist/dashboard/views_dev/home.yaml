@@ -165,6 +165,27 @@ cards:
               ulm_custom_card_esh_room_climate_entity: climate.ac_office
               ulm_custom_card_esh_room_cover_entity: !secret roller_bedroom_05
             label: "YK"
+      # card_esh_room bedroom main & office #
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template:
+              - card_media_player_tv
+              # - yellow_on
+            name: TV
+            icon: mdi:television
+            entity: !secret tv_livingroom
+            # tap_action:
+            #   action: navigate
+            #   navigation_path: bedroom-05
+            variables:
 
+          - type: "custom:button-card"
+            template: card_light
+            entity: !secret garden_light_trees
+            variables:
+              ulm_card_light_name: Garden Lights
+              ulm_card_light_enable_color: true
+              ulm_card_light_force_background_color: true
 
 
