@@ -1,10 +1,10 @@
-find_my_phone:
+find_my_phone_dad:
     alias: Find My Phone
     sequence:
       - repeat:
           count: 5
           sequence:
-            - service: notify.mobile_app_gm1903
+            - service: !secret dad_notify
               data:
                 title: Find my phone
                 message: Home Assistant is searching your phone!
@@ -14,13 +14,13 @@ find_my_phone:
                   channel: alarm_stream
             - delay:
                 seconds: 6
-find_my_nord9t:
+find_my_phone_mom:
     alias: Find My Phone
     sequence:
       - repeat:
           count: 5
           sequence:
-            - service: notify.mobile_app_cph2399
+            - service: !secret mom_notify
               data:
                 title: Find my phone
                 message: Home Assistant is searching your phone!

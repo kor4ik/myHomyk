@@ -5,7 +5,8 @@ title: "development"
 background: "var(--background-image)"
 views:
   - !include views_dev/home.yaml
-  - !include views_dev/person/daddy.yaml
+  - !include views_dev/person/dad.yaml
+  - !include views/person/mom.yaml
   - !include views_dev/room/bedroom-01.yaml
   - !include views_dev/room/bedroom-03.yaml
   - !include views_dev/room/bedroom-04.yaml

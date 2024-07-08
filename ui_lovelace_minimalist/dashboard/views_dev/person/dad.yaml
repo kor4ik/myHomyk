@@ -1,5 +1,5 @@
 title: Yakov
-path: daddy
+path: dad
 cards:
 - type: vertical-stack
   cards:
@@ -15,12 +15,12 @@ cards:
     cards:
       - type: custom:button-card
         template: card_battery
-        entity: sensor.gm1903_battery_level
+        entity: !secret dad_battery_level
         variables:
-          ulm_card_battery_battery_state_entity_id: sensor.gm1903_battery_state
+          ulm_card_battery_battery_state_entity_id: !secret dad_battery_state
           ulm_card_battery_battery_level_danger: 20
           ulm_card_battery_battery_level_warning: 50
-          ulm_card_battery_name: OnePlus 7
+          ulm_card_battery_name: !secret dad_phone_name
       - type: custom:button-card
         template: card_script
         variables:
@@ -37,7 +37,7 @@ cards:
             - background-color: "rgba(var(--color-yellow), 0.2)"
         tap_action:
           action: call-service
-          service: script.find_my_phone
+          service: script.find_my_phone_dad
               
 
 
