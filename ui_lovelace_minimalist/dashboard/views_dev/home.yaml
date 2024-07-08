@@ -47,7 +47,7 @@ cards:
               ulm_card_person_entity: !secret dad_phone
               ulm_card_person_use_entity_picture: true
               ulm_card_person_icon: mdi:face-man
-              ulm_card_person_battery: !secret dad_battery_level
+              ulm_card_person_battery: !secret dad_phone_battery_level
               # ulm_card_person_zone1: zone.work
           - type: "custom:button-card"
             template: card_person
@@ -58,7 +58,7 @@ cards:
               ulm_card_person_entity: !secret mom_phone
               ulm_card_person_use_entity_picture: true
               ulm_card_person_icon: mdi:face-woman
-              ulm_card_person_battery: !secret mom_battery_level
+              ulm_card_person_battery: !secret mom_phone_battery_level
       # card_title devices #
       - type: "custom:button-card"
         template: card_title
@@ -102,7 +102,7 @@ cards:
               action: navigate
               navigation_path: livingroom
             variables:
-              ulm_custom_card_esh_room_light_entity: !secret light_trees
+              ulm_custom_card_esh_room_light_entity: !secret garden_light_trees
               ulm_custom_card_esh_room_climate_entity: climate.ac_livingroom
               ulm_custom_card_esh_room_cover_entity: group.rollers_livingroom
             label: "🌡️ labelToAdd"
