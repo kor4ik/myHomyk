@@ -4,7 +4,7 @@ find_my_phone_dad:
       - repeat:
           count: 5
           sequence:
-            - service: !secret dad_notify
+            - service: !secret dad_phone_notify
               data:
                 title: Find my phone
                 message: Home Assistant is searching your phone!
@@ -20,7 +20,7 @@ find_my_phone_mom:
       - repeat:
           count: 5
           sequence:
-            - service: !secret mom_notify
+            - service: !secret mom_phone_notify
               data:
                 title: Find my phone
                 message: Home Assistant is searching your phone!

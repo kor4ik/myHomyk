@@ -1,4 +1,4 @@
-title: Yakov
+title: !secret dad_name
 path: dad
 cards:
 - type: vertical-stack
@@ -9,15 +9,15 @@ cards:
       ulm_chip_back_path: home
   - type: custom:button-card
     template: card_title
-    name: Yakov
+    name: !secret dad_name
         
   - type: horizontal-stack
     cards:
       - type: custom:button-card
         template: card_battery
-        entity: !secret dad_battery_level
+        entity: !secret dad_phone_battery_level
         variables:
-          ulm_card_battery_battery_state_entity_id: !secret dad_battery_state
+          ulm_card_battery_battery_state_entity_id: !secret dad_phone_battery_state
           ulm_card_battery_battery_level_danger: 20
           ulm_card_battery_battery_level_warning: 50
           ulm_card_battery_name: !secret dad_phone_name

@@ -6,8 +6,8 @@ background: "var(--background-image)"
 show_in_sidebar: false
 views:
   - !include views/home.yaml
-  - !include views/person/daddy.yaml
-  - !include views/person/mommy.yaml
+  - !include views/person/dad.yaml
+  - !include views/person/mom.yaml
   - !include views/room/bedroom-01.yaml
   - !include views/room/bedroom-03.yaml
   - !include views/room/bedroom-04.yaml
