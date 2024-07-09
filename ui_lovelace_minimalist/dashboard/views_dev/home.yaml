@@ -78,7 +78,7 @@ cards:
             triggers_update:
               - entity.attributes.battery_state
               - !secret sensor_main_door
-          - type: 'custom:button-card'
+          - type: "custom:button-card"
             template: card_power_outlet
             entity: switch.water_heater
             variables:
@@ -157,7 +157,6 @@ cards:
               - yellow_on
             name: Office
             icon: mdi:desktop-classic
-            entity: !secret roller_bedroom_05
             tap_action:
               action: navigate
               navigation_path: bedroom-05
@@ -179,6 +178,7 @@ cards:
             #   action: navigate
             #   navigation_path: bedroom-05
             variables:
+              ulm_card_media_player_name: TV
 
           - type: "custom:button-card"
             template: card_light
@@ -187,5 +187,3 @@ cards:
               ulm_card_light_name: Garden Lights
               ulm_card_light_enable_color: true
               ulm_card_light_force_background_color: true
-
-

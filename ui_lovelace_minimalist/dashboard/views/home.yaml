@@ -78,7 +78,7 @@ cards:
             triggers_update:
               - entity.attributes.battery_state
               - !secret sensor_main_door
-          - type: 'custom:button-card'
+          - type: "custom:button-card"
             template: card_power_outlet
             entity: switch.water_heater
             variables:
@@ -157,7 +157,6 @@ cards:
               - yellow_on
             name: Office
             icon: mdi:desktop-classic
-            entity: !secret roller_bedroom_05
             tap_action:
               action: navigate
               navigation_path: bedroom-05
@@ -165,6 +164,3 @@ cards:
               ulm_custom_card_esh_room_climate_entity: climate.ac_office
               ulm_custom_card_esh_room_cover_entity: !secret roller_bedroom_05
             label: "YK"
-
-
-

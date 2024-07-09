@@ -7,7 +7,10 @@ card_media_player_tv:
   size: "20px"
   variables:
     ulm_card_media_player_name: "[[[ return entity.attributes.friendly_name ]]]"
-    ulm_card_media_player_icon: false
+    ulm_card_media_player_enable_controls: false
+    ulm_card_media_player_enable_volume_slider: false
+    ulm_card_media_player_enable_volume_buttons: false
+
   show_icon: true
   show_name: false
   show_label: false
@@ -32,41 +35,55 @@ card_media_player_tv:
       - padding: "12px"
       - background-color: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity) {
-              var color = states[variables.ulm_custom_card_esh_room_light_entity].attributes.rgb_color;
-              if (states[variables.ulm_custom_card_esh_room_light_entity].state == "on") {
-                if (color && variables.ulm_card_dynamic_color) {
-                  return 'rgba(' + color + ', 0.2)';
-                }
-                return 'rgba(var(--color-background-yellow), 0.2)';
-              }
-            }
             return 'var(--ha-card-background, var(--card-background-color, white))';
           ]]]
     grid:
-      - grid-template-areas: >-
+      - grid-template-areas: |
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity) {
-              return "'i light' 'n climate' 'l climate'";
-            } else if (variables.ulm_custom_card_esh_room_light_entity) {
-              return "'i light' 'n n' 'l l'";
-            } else if (variables.ulm_custom_card_esh_room_climate_entity) {
-              return "'i .' 'n climate' 'l climate'";
-            } else {
-              return "'i .' 'n n' 'l l'";
+            var areas = "'item1'";
+            if (variables.ulm_card_media_player_enable_controls){
+              areas = areas + " 'item2'";
             }
+            if (variables.ulm_card_media_player_enable_volume_slider){
+              areas = areas + " 'item3'";
+            }
+            if (variables.ulm_card_media_player_enable_volume_buttons){
+              areas = areas + " 'item4'";
+            }
+            return areas;
           ]]]
-      - grid-template-columns: "1fr 1fr"
-      - grid-template-rows: "min-content"
+      - grid-template-columns: "1fr"
+      - grid-template-rows: |
+          [[[
+            var rows = "min-content";
+            if (variables.ulm_card_media_player_enable_controls){
+              rows = rows + " min-content";
+            }
+            if (variables.ulm_card_media_player_enable_volume_slider){
+              rows = rows + " min-content";
+            }
+            if (variables.ulm_card_media_player_enable_volume_buttons){
+              rows = rows + " min-content";
+            }
+            return rows;
+          ]]]
+      - row-gap: |-
+          [[[
+            if (!variables.ulm_card_media_player_collapsible) {
+                return "12px";
+              } else {
+                return (entity.state === "off" || entity.state === "standby") ? "0px" : "12px";
+              }
+          ]]]
     icon:
-      - filter: >-
-          [[[
-            if (variables.ulm_custom_card_esh_room_light_entity
-                && states[variables.ulm_custom_card_esh_room_light_entity].state == "on"
-                && variables.ulm_card_dynamic_color) {
-              return "contrast(0.6) saturate(1.7)";
-            }
-          ]]]
+      # - filter: >-
+      #     [[[
+      #       if (variables.ulm_custom_card_esh_room_light_entity
+      #           && states[variables.ulm_custom_card_esh_room_light_entity].state == "on"
+      #           && variables.ulm_card_dynamic_color) {
+      #         return "contrast(0.6) saturate(1.7)";
+      #       }
+      #     ]]]
       - color: >-
           [[[
             if (variables.ulm_custom_card_esh_room_light_entity) {
