@@ -229,7 +229,7 @@ card_thermostat_ewpe:
                   target_temp_low: |
                     [[[
                       if (entity.attributes.target_temp_low == null) {
-                        return 0;
+                        return 23;
                       } else {
                         const unit = hass.config.unit_system.temperature
                         const step = variables.ulm_card_thermostat_temp_step || entity.attributes.target_temp_step || (unit == '°F' ? 1.0 : 0.5)
@@ -240,7 +240,7 @@ card_thermostat_ewpe:
                   target_temp_high: |
                     [[[
                       if (entity.attributes.target_temp_low == null) {
-                        return 0;
+                        return 23;
                       } else {
                         const unit = hass.config.unit_system.temperature
                         const step = variables.ulm_card_thermostat_temp_step || entity.attributes.target_temp_step || (unit == '°F' ? 1.0 : 0.5)
@@ -250,11 +250,11 @@ card_thermostat_ewpe:
                   temperature: |
                     [[[
                       if (entity.attributes.temperature == null) {
-                        return 0;
+                        return 23;
                       } else {
                         const unit = hass.config.unit_system.temperature
                         const step = variables.ulm_card_thermostat_temp_step || entity.attributes.target_temp_step || (unit == '°F' ? 1.0 : 0.5)
-                        return (parseFloat(states[entity.entity_id].attributes.temperature) - step)
+                        return (parseFloat(entity.attributes.temperature) - step)
                       }
                     ]]]
                   entity_id: "[[[ return entity.entity_id ]]]"
@@ -299,7 +299,7 @@ card_thermostat_ewpe:
                   target_temp_low: |
                     [[[
                       if (entity.attributes.target_temp_low == null) {
-                        return 0;
+                        return 23;
                       } else {
                         return entity.attributes.target_temp_low;
                       }
@@ -307,7 +307,7 @@ card_thermostat_ewpe:
                   target_temp_high: |
                     [[[
                       if (entity.attributes.target_temp_high == null) {
-                        return 0;
+                        return 23;
                       } else {
                         const unit = hass.config.unit_system.temperature
                         const step = variables.ulm_card_thermostat_temp_step || entity.attributes.target_temp_step || (unit == '°F' ? 1.0 : 0.5)
@@ -317,11 +317,11 @@ card_thermostat_ewpe:
                   temperature: |
                     [[[
                       if (entity.attributes.temperature == null) {
-                        return 0;
+                        return 23;
                       } else {
                         const unit = hass.config.unit_system.temperature
                         const step = variables.ulm_card_thermostat_temp_step || entity.attributes.target_temp_step || (unit == '°F' ? 1.0 : 0.5)
-                        return (parseFloat(states[entity.entity_id].attributes.temperature) + step)
+                        return (parseFloat(entity.attributes.temperature) + step)
                       }
                     ]]]
                   entity_id: "[[[ return entity.entity_id ]]]"
