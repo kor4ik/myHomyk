@@ -30,3 +30,19 @@ find_my_phone_mom:
                   channel: alarm_stream
             - delay:
                 seconds: 6
+find_my_phone_01_kid:
+    alias: Find My Phone
+    sequence:
+      - repeat:
+          count: 5
+          sequence:
+            - service: !secret 01_kid_phone_notify
+              data:
+                title: Find my phone
+                message: Home Assistant is searching your phone!
+                data:
+                  ttl: 0
+                  priority: high
+                  channel: alarm_stream
+            - delay:
+                seconds: 6
