@@ -59,6 +59,8 @@ cards:
               ulm_card_person_use_entity_picture: true
               ulm_card_person_icon: mdi:face-woman
               ulm_card_person_battery: !secret mom_phone_battery_level
+      - type: horizontal-stack
+        cards:
           - type: "custom:button-card"
             template: card_person
             tap_action:
@@ -69,6 +71,8 @@ cards:
               ulm_card_person_use_entity_picture: true
               ulm_card_person_icon: mdi:face-woman
               ulm_card_person_battery: !secret 01_kid_phone_battery_level
+          - type: "custom:button-card"
+            color_type: blank-card
       # card_title devices #
       - type: "custom:button-card"
         template: card_title
