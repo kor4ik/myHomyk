@@ -69,7 +69,7 @@ cards:
               - !secret sensor_main_door
           - type: "custom:button-card"
             template: card_power_outlet
-            entity: switch.water_heater
+            entity: !secret water_heater
             variables:
               ulm_card_power_outlet_name: Water Heater
               ulm_card_power_outlet_icon: mdi:power

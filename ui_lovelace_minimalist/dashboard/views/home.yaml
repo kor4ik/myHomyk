@@ -94,7 +94,7 @@ cards:
               - !secret sensor_main_door
           - type: "custom:button-card"
             template: card_power_outlet
-            entity: switch.water_heater
+            entity: !secret water_heater
             variables:
               ulm_card_power_outlet_name: Water Heater
               ulm_card_power_outlet_icon: mdi:power
@@ -119,7 +119,11 @@ cards:
               ulm_custom_card_esh_room_light_entity: !secret garden_light_trees
               ulm_custom_card_esh_room_climate_entity: climate.ac_livingroom
               ulm_custom_card_esh_room_cover_entity: group.rollers_livingroom
-            label: "🌡️ labelToAdd"
+              temperature_entity: !secret bathroom_temperature
+            label: |
+              [[[
+                return "🌡️ " + states[variables.temperature_entity].state + " °C";
+              ]]]
       # card_esh_room laly & guest #
       - type: horizontal-stack
         cards:
