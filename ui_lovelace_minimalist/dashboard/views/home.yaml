@@ -120,10 +120,7 @@ cards:
               ulm_custom_card_esh_room_climate_entity: climate.ac_livingroom
               ulm_custom_card_esh_room_cover_entity: group.rollers_livingroom
               temperature_entity: !secret bathroom_temperature
-            label: |
-              [[[
-                return "🌡️ " + states[variables.temperature_entity].state + " °C";
-              ]]]
+            label: "🌡️ LabelToAdd"
       # card_esh_room laly & guest #
       - type: horizontal-stack
         cards:
