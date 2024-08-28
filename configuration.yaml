@@ -16,12 +16,18 @@ lovelace:
       icon: mdi:developer-board
       show_in_sidebar: true
       filename: ui_lovelace_minimalist/dashboard/ui-lovelace-dev.yaml
-    db-minimalist:
+    db-minimalist-mobile:
       mode: yaml
-      title: My Home
-      icon: mdi:flower
+      title: mini-mobile
+      icon: mdi:cellphone
       show_in_sidebar: true
       filename: ui_lovelace_minimalist/dashboard/ui-lovelace.yaml
+    db-minimalist-tablet:
+      mode: yaml
+      title: mini-tablet
+      icon: mdi:tablet
+      show_in_sidebar: true
+      filename: ui_lovelace_minimalist/dashboard/ui-lovelace-tablet.yaml
     db-01:
       mode: yaml
       title: !secret 01_kid_name

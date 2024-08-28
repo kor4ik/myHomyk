@@ -12,11 +12,6 @@ layout:
       grid-template-areas: |
         "left" 
         "right"
-    # "(max-width: 800px)":
-    #   grid-template-columns: 50% 50%
-    #   grid-template-areas: |
-    #     "left right" 
-    #     "middle middle"
 cards:
   - type: vertical-stack
     cards:
@@ -74,12 +69,26 @@ cards:
             template: card_person
             tap_action:
               action: navigate
-              navigation_path: mommy
+              navigation_path: mom
             variables:
               ulm_card_person_entity: !secret mom_phone
               ulm_card_person_use_entity_picture: true
               ulm_card_person_icon: mdi:face-woman
               ulm_card_person_battery: !secret mom_phone_battery_level
+      # - type: horizontal-stack
+      #   cards:
+          - type: "custom:button-card"
+            template: card_person
+            tap_action:
+              action: navigate
+              navigation_path: 01_kid
+            variables:
+              ulm_card_person_entity: !secret 01_kid_phone
+              ulm_card_person_use_entity_picture: true
+              ulm_card_person_icon: mdi:face-woman
+              ulm_card_person_battery: !secret 01_kid_phone_battery_level
+          - type: "custom:button-card"
+            color_type: blank-card
       # card_title devices #
       - type: "custom:button-card"
         template: card_title
@@ -126,7 +135,8 @@ cards:
               ulm_custom_card_esh_room_light_entity: !secret garden_light_trees
               ulm_custom_card_esh_room_climate_entity: climate.ac_livingroom
               ulm_custom_card_esh_room_cover_entity: group.rollers_livingroom
-            label: "🌡️ labelToAdd"
+              temperature_entity: !secret bathroom_temperature
+            label: "🌡️ LabelToAdd"
       # card_esh_room laly & guest #
       - type: horizontal-stack
         cards:
@@ -185,28 +195,5 @@ cards:
               ulm_custom_card_esh_room_climate_entity: climate.ac_office
               ulm_custom_card_esh_room_cover_entity: !secret roller_bedroom_05
             label: "YK"
-      # card_esh_room bedroom main & office #
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template:
-              - card_media_player_tv
-              # - yellow_on
-            name: TV
-            icon: mdi:television
-            entity: !secret tv_livingroom
-            # tap_action:
-            #   action: navigate
-            #   navigation_path: bedroom-05
-            variables:
-              ulm_card_media_player_name: TV
-
-          - type: "custom:button-card"
-            template: card_light
-            entity: !secret garden_light_trees
-            variables:
-              ulm_card_light_name: Garden Lights
-              ulm_card_light_enable_color: true
-              ulm_card_light_force_background_color: true
     view_layout:
       grid-area: right

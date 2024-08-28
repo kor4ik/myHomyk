@@ -1,0 +1,16 @@
+---
+button_card_templates: !include_dir_merge_named "../../custom_components/ui_lovelace_minimalist/__ui_minimalist__/ulm_templates/"
+
+title: "My Home"
+background: "var(--background-image)"
+show_in_sidebar: false
+views:
+  - !include views/home-tablet.yaml
+  - !include views/person/dad.yaml
+  - !include views/person/mom.yaml
+  - !include views/person/01_kid.yaml
+  - !include views/room/bedroom-01.yaml
+  - !include views/room/bedroom-03.yaml
+  - !include views/room/bedroom-04.yaml
+  - !include views/room/bedroom-05.yaml
+  - !include views/room/livingroom.yaml
