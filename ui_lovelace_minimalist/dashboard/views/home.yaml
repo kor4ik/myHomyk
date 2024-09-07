@@ -48,7 +48,6 @@ cards:
               ulm_card_person_use_entity_picture: true
               ulm_card_person_icon: mdi:face-man
               ulm_card_person_battery: !secret dad_phone_battery_level
-              # ulm_card_person_zone1: zone.work
           - type: "custom:button-card"
             template: card_person
             tap_action:
