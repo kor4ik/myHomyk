@@ -13,16 +13,6 @@ cards:
         name: Main Bedroom
 
       - type: "custom:button-card"
-        template: card_cover
-        entity: !secret roller_bedroom_01
-        variables:
-          ulm_card_cover_name: Roller
-          ulm_card_cover_enable_controls: true
-          ulm_card_cover_enable_slider: true
-          ulm_card_cver_favorite_percentage: 45
-          ulm_card_cover_color: yellow
-
-      - type: "custom:button-card"
         template: card_broadlink_tadiran
         entity: climate.ac_bedroom_main
         variables:
@@ -34,3 +24,30 @@ cards:
             [[[
               return entity.state.charAt(0).toUpperCase() + entity.state.slice(1);
             ]]]
+
+      - type: "custom:button-card"
+        template: card_cover
+        entity: !secret roller_bedroom_01
+        variables:
+          ulm_card_cover_name: Roller
+          ulm_card_cover_enable_controls: true
+          ulm_card_cover_enable_slider: true
+          ulm_card_cver_favorite_percentage: 45
+          ulm_card_cover_color: yellow
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: !secret bedroom_01_light_bed_left
+            variables:
+              ulm_card_light_name: !secret mom_name
+              ulm_card_light_enable_color: true
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: !secret bedroom_01_light_bed_right
+            variables:
+              ulm_card_light_name: !secret dad_name
+              ulm_card_light_enable_color: true
+              ulm_card_light_force_background_color: true

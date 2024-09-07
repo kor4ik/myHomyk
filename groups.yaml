@@ -3,3 +3,8 @@ rollers_livingroom:
   entities:
     - !secret roller_kitchen
     - !secret roller_livingroom
+lights_bedroom_01:
+  name: Main Bedroom Lights
+  entities:
+    - !secret bedroom_01_light_bed_left
+    - !secret bedroom_01_light_bed_right

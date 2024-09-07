@@ -2,7 +2,7 @@ title: "Home"
 path: home
 type: custom:grid-layout
 layout:
-  grid-template-columns: 50% 50%
+  grid-template-columns: 45% 55%
   grid-template-rows: auto
   grid-template-areas: |
     "left right"
@@ -195,7 +195,7 @@ cards:
               action: navigate
               navigation_path: bedroom-01
             variables:
-              ulm_custom_card_esh_room_cover_entity: !secret roller_bedroom_01
+              ulm_custom_card_esh_room_light_entity: group.lights_bedroom_01
               ulm_custom_card_esh_room_climate_entity: climate.ac_bedroom_main
             label: Main
           - type: "custom:button-card"
