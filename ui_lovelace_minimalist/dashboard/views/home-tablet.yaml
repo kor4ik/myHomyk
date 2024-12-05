@@ -112,18 +112,18 @@ cards:
       # devices lock & water_heater #
       - type: horizontal-stack
         cards:
-          - type: "custom:button-card"
-            entity: lock.smart_lock
-            template: "custom_card_lock_gimdow"
-            name: "Main Door"
-            variables:
-              custom_card_lock_gimdow_language_variables: en
-              ulm_custom_card_lock_tap_control: true
-              ulm_custom_card_lock_battery_level: lock.smart_lock
-              ulm_custom_card_lock_door_open: !secret sensor_main_door
-            triggers_update:
-              - entity.attributes.battery_state
-              - !secret sensor_main_door
+          # - type: "custom:button-card"
+          #   entity: lock.smart_lock
+          #   template: "custom_card_lock_gimdow"
+          #   name: "Main Door"
+          #   variables:
+          #     custom_card_lock_gimdow_language_variables: en
+          #     ulm_custom_card_lock_tap_control: true
+          #     ulm_custom_card_lock_battery_level: lock.smart_lock
+          #     ulm_custom_card_lock_door_open: !secret sensor_main_door
+          #   triggers_update:
+          #     - entity.attributes.battery_state
+          #     - !secret sensor_main_door
           - type: "custom:button-card"
             template: card_power_outlet
             entity: !secret water_heater
@@ -131,6 +131,8 @@ cards:
               ulm_card_power_outlet_name: Water Heater
               ulm_card_power_outlet_icon: mdi:power
               ulm_card_power_outlet_force_background_color: true
+          - type: "custom:button-card"
+            color_type: blank-card
       # card_title rooms #
       - type: "custom:button-card"
         template: card_title
