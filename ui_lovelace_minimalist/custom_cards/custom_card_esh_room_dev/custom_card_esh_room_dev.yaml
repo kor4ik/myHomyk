@@ -56,9 +56,9 @@ card_esh_room_dev:
       - grid-template-areas: >-
           [[[{
             if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity && variables.ulm_custom_card_esh_room_cover_entity) {
-              return " 'n climate' 'c cover' 'l cover' 'i light'";
+              return " 'i climate' 'n cover' 'n cover' 'l light'";
             } else if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_cover_entity) {
-              return "'n cover' 'l light' 'i light'";
+              return "'i cover' 'n light' 'l light'";
             } else if (variables.ulm_custom_card_esh_room_climate_entity && variables.ulm_custom_card_esh_room_cover_entity) {
               return "'i climate' 'n cover' 'l cover'";
             } else if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity) {
