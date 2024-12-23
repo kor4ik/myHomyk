@@ -15,7 +15,8 @@ layout:
 cards:
   - type: vertical-stack
     cards:
-      # card_esh_welcome & weather #
+      # weather & camera #
+            # clock # 
       - type: custom:simple-clock-card
         use_military: true
         hide_seconds: false
@@ -24,38 +25,7 @@ cards:
         paddingLeft_size: 32px
         paddingRight_size: 32px
         paddingTop_size: 32px
-        paddingBottom_size: 32px
-      - type: "custom:button-card"
-        template: "card_esh_welcome"
-        triggers_update: "input_boolean.mini_toggle"
-        variables:
-          ulm_card_esh_welcome_collapse: input_boolean.mini_toggle
-          ulm_weather: weather.forecast_home
-          entity_1:
-            nav: "house"
-            icon: "mdi:home"
-            name: "House"
-            color: "blue"
-          entity_2:
-            nav: "lights"
-            icon: "mdi:lightbulb"
-            name: "Lights"
-            color: "yellow"
-          entity_3:
-            nav: "security"
-            icon: "mdi:shield"
-            name: Secure
-            color: "green"
-          entity_4:
-            nav: "network"
-            icon: "mdi:nas"
-            name: Lab
-            color: "purple"
-          entity_5:
-            nav: "network"
-            icon: "mdi:flask"
-            name: Lab
-            color: "red"
+        paddingBottom_size: 28px
       - type: weather-forecast
         entity: weather.forecast_home
         name: Home
@@ -63,6 +33,14 @@ cards:
         show_forecast: true
         forecast_type: daily
         # secondary_info_attribute: sun.sun
+      - type: "custom:button-card"
+        template: custom_card_camera
+        entity: !secret camera_front_door
+        show_icon: true
+        variables:
+          ulm_custom_card_camera_title: true
+          ulm_custom_card_camera_name: "Front Door"
+          ulm_custom_card_camera_aspect_ratio: '16:9'
     view_layout:
       grid-area: left
   - type: vertical-stack
