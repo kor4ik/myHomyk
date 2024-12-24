@@ -81,7 +81,7 @@ cards:
         cards:
           - type: "custom:button-card"
             entity: !secret lock_entity
-            template: "custom_card_lock_gimdow"
+            template: "custom_card_lock_g4"
             name: "Main Door"
             variables:
               custom_card_lock_gimdow_language_variables: en
