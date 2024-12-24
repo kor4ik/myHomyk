@@ -52,14 +52,14 @@ cards:
             icon: "mdi:flask"
             name: Lab
             color: "red"
-      - type: "custom:button-card"
-        template: custom_card_camera
-        entity: !secret camera_front_door
-        show_icon: true
-        variables:
-          ulm_custom_card_camera_title: true
-          ulm_custom_card_camera_name: "Front Door"
-          ulm_custom_card_camera_aspect_ratio: '16:9'
+      # - type: "custom:button-card"
+      #   template: custom_card_camera
+      #   entity: !secret camera_front_door
+      #   show_icon: true
+      #   variables:
+      #     ulm_custom_card_camera_title: true
+      #     ulm_custom_card_camera_name: "Front Door"
+      #     ulm_custom_card_camera_aspect_ratio: '16:9'
     view_layout:
       grid-area: left
   - type: vertical-stack
@@ -97,15 +97,15 @@ cards:
         cards:
           - type: "custom:button-card"
             entity: !secret lock_entity
-            template: "custom_card_lock_gimdow"
+            template: custom_card_lock_g4
             name: "Main Door"
             variables:
-              custom_card_lock_gimdow_language_variables: en
+              custom_card_lock_g4_language_variables: en
               ulm_custom_card_lock_tap_control: true
               ulm_custom_card_lock_battery_level: !secret lock_battery
               ulm_custom_card_lock_door_open: !secret sensor_main_door
             triggers_update:
-              - entity.attributes.battery_state
+              - !secret lock_battery
               - !secret sensor_main_door
           - type: "custom:button-card"
             template: card_power_outlet
