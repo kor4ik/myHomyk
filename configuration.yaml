@@ -55,11 +55,11 @@ automation wake_up_screen:
     initial_state: true
     triggers:
       trigger: state
-      entity_id: binary_sensor.doorbell_repeater_da57_motion_sensor
+      entity_id: !secret camera_front_door_motion
       to: "on"
     condition: []
     actions:
-      action: notify.mobile_app_sgp511
+      action: !secret tablet_notify
       data:
         message: command_screen_on
     mode: single
