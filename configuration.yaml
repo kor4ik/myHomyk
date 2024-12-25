@@ -39,7 +39,6 @@ lovelace:
 frontend:
   themes: !include_dir_merge_named themes
 
-automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 climate: !include climate.yaml
@@ -48,3 +47,19 @@ group: !include groups.yaml
 
 smartir:
   check_updates: false
+
+automation: !include automations.yaml
+automation wake_up_screen:
+  - alias: Wake up screenblet on motion
+    description: Wake up the device screen when motion is detected
+    initial_state: true
+    triggers:
+      trigger: state
+      entity_id: binary_sensor.doorbell_repeater_da57_motion_sensor
+      to: "on"
+    condition: []
+    actions:
+      action: notify.mobile_app_sgp511
+      data:
+        message: command_screen_on
+    mode: single
