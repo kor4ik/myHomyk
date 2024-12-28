@@ -221,5 +221,14 @@ cards:
               ulm_card_light_name: Garden Lights
               ulm_card_light_enable_color: true
               ulm_card_light_force_background_color: true
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: card_navigate
+            variables:
+              ulm_card_navigate_path: tv-samsung
+              ulm_card_navigate_title: Media
+              ulm_card_navigate_icon: mdi:television
+              ulm_card_navigate_color: var(--color-red)
     view_layout:
       grid-area: right

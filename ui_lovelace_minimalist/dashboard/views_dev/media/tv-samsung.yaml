@@ -1,0 +1,30 @@
+title: tv-samsung
+path: tv-samsung
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: New section
+      - type: tile
+        entity: remote.samsung_7_series_75
+        icon: mdi:power
+        color: disabled
+        show_entity_picture: false
+        vertical: false
+        hide_state: false
+        grid_options:
+          columns: 6
+          rows: 1
+        tap_action:
+          action: perform-action
+          perform_action: remote.send_command
+          target:
+            device_id: c82e463e876d249eb2f3b38a21042d88
+          data:
+            num_repeats: 1
+            delay_secs: 0.4
+            hold_secs: 0
+        state_content: state
+        name: TV
+
+

@@ -12,3 +12,4 @@ views:
   - !include views_dev/room/bedroom-04.yaml
   - !include views_dev/room/bedroom-05.yaml
   - !include views_dev/room/livingroom.yaml
+  - !include views_dev/media/tv-samsung.yaml
