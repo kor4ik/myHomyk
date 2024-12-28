@@ -223,9 +223,11 @@ card_thermostat_ewpe:
               entity: "[[[ return entity.entity_id ]]]"
               icon: "mdi:minus"
               tap_action:
-                action: "call-service"
-                service: "climate.set_temperature"
-                service_data:
+                action: "perform-action"
+                perform_action: "climate.set_temperature"
+                target:
+                  entity_id: "[[[ return entity.entity_id ]]]"
+                data:
                   target_temp_low: |
                     [[[
                       if (entity.attributes.target_temp_low !== undefined) {
@@ -251,7 +253,6 @@ card_thermostat_ewpe:
                         return (parseFloat(entity.attributes.temperature) - step)
                       }
                     ]]]
-                  entity_id: "[[[ return entity.entity_id ]]]"
               state:
                 - operator: "template"
                   value: >
@@ -287,9 +288,11 @@ card_thermostat_ewpe:
               entity: "[[[ return entity.entity_id ]]]"
               icon: "mdi:plus"
               tap_action:
-                action: "call-service"
-                service: "climate.set_temperature"
-                service_data:
+                action: "perform-action"
+                perform_action: "climate.set_temperature"
+                target:
+                  entity_id: "[[[ return entity.entity_id ]]]"
+                data:
                   target_temp_low: |
                     [[[
                       if (entity.attributes.target_temp_low !== undefined) {
@@ -312,7 +315,6 @@ card_thermostat_ewpe:
                         return (parseFloat(entity.attributes.temperature) + step)
                       }
                     ]]]
-                  entity_id: "[[[ return entity.entity_id ]]]"
               state:
                 - operator: "template"
                   value: >
@@ -337,9 +339,11 @@ card_thermostat_ewpe:
               entity: "[[[ return entity.entity_id ]]]"
               icon: "mdi:minus"
               tap_action:
-                action: "call-service"
-                service: "climate.set_temperature"
-                service_data:
+                action: "perform-action"
+                perform_action: "climate.set_temperature"
+                target:
+                  entity_id: "[[[ return entity.entity_id ]]]"
+                data:
                   target_temp_low: |
                     [[[
                       const unit = hass.config.unit_system.temperature
@@ -347,7 +351,6 @@ card_thermostat_ewpe:
                       return (parseFloat(entity.attributes.target_temp_low) - step)
                     ]]]
                   target_temp_high: "[[[ return entity.attributes.target_temp_high ]]]"
-                  entity_id: "[[[ return entity.entity_id ]]]"
               state:
                 - operator: "template"
                   value: >
@@ -383,9 +386,11 @@ card_thermostat_ewpe:
               entity: "[[[ return entity.entity_id ]]]"
               icon: "mdi:plus"
               tap_action:
-                action: "call-service"
-                service: "climate.set_temperature"
-                service_data:
+                action: "perform-action"
+                perform_action: "climate.set_temperature"
+                target:
+                  entity_id: "[[[ return entity.entity_id ]]]"
+                data:
                   target_temp_low: |
                     [[[
                       const unit = hass.config.unit_system.temperature
@@ -399,7 +404,6 @@ card_thermostat_ewpe:
                       const new_temp = (parseFloat(entity.attributes.target_temp_low) + step)
                       return (new_temp + variables.ulm_card_thermostat_minimum_temp_spread > entity.attributes.target_temp_high ? new_temp + variables.ulm_card_thermostat_minimum_temp_spread : entity.attributes.target_temp_high)
                     ]]]
-                  entity_id: "[[[ return entity.entity_id ]]]"
               state:
                 - operator: "template"
                   value: >
