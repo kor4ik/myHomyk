@@ -1,0 +1,62 @@
+---
+### custom card button ###
+custom_card_button:
+  color: "var(--google-grey-500)"
+  show_icon: true
+  show_name: false
+  show_label: false
+  template:
+    - "ulm_translation_engine"
+  variables:
+    ulm_custom_card_button_entity: null
+    ulm_custom_card_button_icon: null
+    ulm_custom_card_button_icon_color: null
+    ulm_custom_card_button_icon_size: 40px
+    ulm_custom_card_button_action: none
+  tap_action:
+    action: perform-action
+    target:
+      entity_id: "[[[ return entity.entity_id; ]]]"
+    perform_action: >
+      [[[ 
+        if (entity.state == "on") {
+          if (variables.ulm_custom_card_button_action === "power") {
+            return "media_player.turn_off";
+          } 
+          else if (variables.ulm_custom_card_button_action.startsWith("source")) {
+            return "media_player.select_source";
+          }
+          else if (variables.ulm_custom_card_button_action.startsWith("volume")) {
+            return "media_player." + variables.ulm_custom_card_button_action;
+          }
+          else if (variables.ulm_custom_card_button_action.startsWith("KEY")) {
+            return "remote.send_command";
+          }
+        } else { return "media_player.turn_on"; }
+      ]]]
+    data: >
+      [[[
+        if (variables.ulm_custom_card_button_action.startsWith("source")) {
+          const source = variables.ulm_custom_card_button_action.split("_")[1]
+          return { source: source };
+        }
+        else if (variables.ulm_custom_card_button_action === "volume_mute") {
+          return { is_volume_muted: false };
+        }
+        else if (variables.ulm_custom_card_button_action.startsWith("KEY")) {
+          return { command: variables.ulm_custom_card_button_action };
+        }
+      ]]]
+  icon: "[[[ return variables.ulm_custom_card_button_icon; ]]]"
+  styles:
+    icon:
+      - height: "[[[ return variables.ulm_custom_card_button_icon_size; ]]]"
+      - color: grey
+  state:
+    - value: "on"
+      styles:
+        icon:
+          - color: >
+              [[[ 
+                return variables.ulm_custom_card_button_icon_color; 
+              ]]]
