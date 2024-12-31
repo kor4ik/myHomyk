@@ -1,0 +1,9 @@
+- sensor:
+    - name: "water_heater_last_on"
+      state: >
+        {% set switch = states.switch.water_heater_socket_1 %}
+        {% if switch.state == 'on' %}
+          {% set last_on = switch.last_changed %}
+          {% set time_diff = (now() - last_on).total_seconds() / 60 %}
+          {{ time_diff | round(0) }} minutes ago
+        {% endif %}
