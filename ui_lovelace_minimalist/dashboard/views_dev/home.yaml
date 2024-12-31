@@ -229,6 +229,14 @@ cards:
               ulm_card_navigate_path: tv-samsung
               ulm_card_navigate_title: Media
               ulm_card_navigate_icon: mdi:television
-              ulm_card_navigate_color: var(--color-red)
+              ulm_card_navigate_color: var(--color-yellow)
+          # - type: "custom:button-card"
+          #   color_type: blank-card
+          - type: custom:button-card
+            template: card_button_navigate
+            entity: !secret tv_livingroom
+            variables:
+              ulm_card_button_navigate_name: TV
+              ulm_card_button_navigate_path: tv-samsung
     view_layout:
       grid-area: right
