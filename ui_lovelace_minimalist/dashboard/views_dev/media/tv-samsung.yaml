@@ -12,6 +12,11 @@ cards:
           - type: "custom:button-card"
             template: card_title
             name: !secret tv_livingroom_name
+      # blank line #
+      - type: "custom:button-card"
+        color_type: blank-card
+      - type: "custom:button-card"
+        color_type: blank-card
       # power #
       - type: horizontal-stack
         cards:
@@ -22,11 +27,45 @@ cards:
             entity: !secret tv_livingroom
             variables:
               ulm_custom_card_button_icon: mdi:power
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.9)
+              ulm_custom_card_button_icon_color: lightsteelblue
               ulm_custom_card_button_action: power
           - type: "custom:button-card"
             color_type: blank-card
-      # blank line #      
+      # blank line #
+      - type: "custom:button-card"
+        color_type: blank-card
+      # help buttons back home menu #
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: custom_card_button
+            entity: !secret tv_livingroom_remote
+            variables:
+              ulm_custom_card_button_icon: mdi:replay
+              ulm_custom_card_button_icon_color: lightsteelblue
+              ulm_custom_card_button_action: KEY_RETURN
+          - type: custom:button-card
+            template: custom_card_button
+            entity: !secret tv_livingroom_remote
+            variables:
+              ulm_custom_card_button_icon: mdi:location-exit
+              ulm_custom_card_button_icon_color: lightsteelblue
+              ulm_custom_card_button_action: KEY_EXIT
+          - type: custom:button-card
+            template: custom_card_button
+            entity: !secret tv_livingroom_remote
+            variables:
+              ulm_custom_card_button_icon: mdi:home
+              ulm_custom_card_button_icon_color: lightsteelblue
+              ulm_custom_card_button_action: KEY_HOME
+          - type: custom:button-card
+            template: custom_card_button
+            entity: !secret tv_livingroom_remote
+            variables:
+              ulm_custom_card_button_icon: mdi:menu
+              ulm_custom_card_button_icon_color: lightsteelblue
+              ulm_custom_card_button_action: KEY_MENU
+      # blank line #
       - type: "custom:button-card"
         color_type: blank-card
       # sources #
@@ -44,7 +83,7 @@ cards:
             entity: !secret tv_livingroom
             variables:
               ulm_custom_card_button_icon: mdi:desktop-classic
-              ulm_custom_card_button_icon_color: lightblue
+              ulm_custom_card_button_icon_color: deepskyblue
               ulm_custom_card_button_action: source_HDMI
           - type: custom:button-card
             template: custom_card_button
@@ -60,7 +99,7 @@ cards:
               ulm_custom_card_button_icon: mdi:spotify
               ulm_custom_card_button_icon_color: green
               ulm_custom_card_button_action: source_Spotify - Music and Podcasts
-      # blank line #      
+      # blank line #
       - type: "custom:button-card"
         color_type: blank-card
       # volume #
@@ -71,25 +110,23 @@ cards:
             entity: !secret tv_livingroom
             variables:
               ulm_custom_card_button_icon: mdi:volume-off
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
+              ulm_custom_card_button_icon_color: lightsteelblue
               ulm_custom_card_button_action: volume_mute
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom
             variables:
               ulm_custom_card_button_icon: mdi:volume-medium
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
+              ulm_custom_card_button_icon_color: lightsteelblue
               ulm_custom_card_button_action: volume_down
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom
             variables:
               ulm_custom_card_button_icon: mdi:volume-high
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
+              ulm_custom_card_button_icon_color: lightsteelblue
               ulm_custom_card_button_action: volume_up
-      # blank line #      
-      - type: "custom:button-card"
-        color_type: blank-card    
+      # blank line #
       - type: "custom:button-card"
         color_type: blank-card
       # controll up #
@@ -104,7 +141,7 @@ cards:
             entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:chevron-up
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
+              ulm_custom_card_button_icon_color: lightsteelblue
               ulm_custom_card_button_action: KEY_UP
           - type: "custom:button-card"
             color_type: blank-card
@@ -120,21 +157,21 @@ cards:
             entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:chevron-left
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
+              ulm_custom_card_button_icon_color: lightsteelblue
               ulm_custom_card_button_action: KEY_LEFT
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:circle-slice-8
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
+              ulm_custom_card_button_icon_color: lightsteelblue
               ulm_custom_card_button_action: KEY_ENTER
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:chevron-right
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
+              ulm_custom_card_button_icon_color: lightsteelblue
               ulm_custom_card_button_action: KEY_RIGHT
           - type: "custom:button-card"
             color_type: blank-card
@@ -150,45 +187,14 @@ cards:
             entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:chevron-down
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
+              ulm_custom_card_button_icon_color: lightsteelblue
               ulm_custom_card_button_action: KEY_DOWN
           - type: "custom:button-card"
             color_type: blank-card
           - type: "custom:button-card"
             color_type: blank-card
-      # blank line #      
+      # blank line #
       - type: "custom:button-card"
         color_type: blank-card
       - type: "custom:button-card"
         color_type: blank-card
-      # help buttons back home menu #
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: custom_card_button
-            entity: !secret tv_livingroom_remote
-            variables:
-              ulm_custom_card_button_icon: mdi:replay
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
-              ulm_custom_card_button_action: KEY_RETURN
-          - type: custom:button-card
-            template: custom_card_button
-            entity: !secret tv_livingroom_remote
-            variables:
-              ulm_custom_card_button_icon: mdi:home
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
-              ulm_custom_card_button_action: KEY_HOME
-          - type: custom:button-card
-            template: custom_card_button
-            entity: !secret tv_livingroom_remote
-            variables:
-              ulm_custom_card_button_icon: mdi:menu
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
-              ulm_custom_card_button_action: KEY_MENU
-          - type: custom:button-card
-            template: custom_card_button
-            entity: !secret tv_livingroom_remote
-            variables:
-              ulm_custom_card_button_icon: mdi:location-exit
-              ulm_custom_card_button_icon_color: rgba(var(--color-yellow), 0.7)
-              ulm_custom_card_button_action: KEY_EXIT
