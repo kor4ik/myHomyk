@@ -120,7 +120,15 @@ cards:
               ulm_custom_card_esh_room_climate_entity: climate.ac_main
               ulm_custom_card_esh_room_cover_entity: group.rollers_livingroom
               temperature_entity: !secret bathroom_temperature
-            label: "🌡️ LabelToAdd"
+            label: |
+              [[[ 
+                var target = states['climate.ac_main'];
+                var temperature = target.attributes.current_temperature;
+                if (temperature == null) {
+                  var temperature = '-';
+                }
+                return "🌡️ " + temperature + hass.config.unit_system.temperature;
+              ]]]
       # card_esh_room laly & guest #
       - type: horizontal-stack
         cards:
@@ -128,7 +136,7 @@ cards:
             template:
               - card_esh_room_dev
               - yellow_on
-            name: Bedroom
+            name: Laly
             icon: mdi:bed
             tap_action:
               action: navigate
@@ -136,12 +144,20 @@ cards:
             variables:
               ulm_custom_card_esh_room_cover_entity: !secret roller_bedroom_03
               ulm_custom_card_esh_room_climate_entity: climate.ac_bedroom_02
-            label: "Laly"
+            label: |
+              [[[ 
+                var target = states['climate.ac_bedroom_02'];
+                var temperature = target.attributes.current_temperature;
+                if (temperature == null) {
+                  var temperature = '-';
+                }
+                return "🌡️ " + temperature + hass.config.unit_system.temperature;
+              ]]]
           - type: "custom:button-card"
             template:
               - card_esh_room_dev
               - yellow_on
-            name: Bedroom
+            name: Guest
             icon: mdi:bed
             tap_action:
               action: navigate
@@ -149,7 +165,15 @@ cards:
             variables:
               ulm_custom_card_esh_room_cover_entity: !secret roller_bedroom_04
               ulm_custom_card_esh_room_climate_entity: climate.ac_guest
-            label: "Guest"
+            label: |
+              [[[ 
+                var target = states['climate.ac_guest'];
+                var temperature = target.attributes.current_temperature;
+                if (temperature == null) {
+                  var temperature = '-';
+                }
+                return "🌡️ " + temperature + hass.config.unit_system.temperature;
+              ]]]
       # card_esh_room bedroom main & office #
       - type: horizontal-stack
         cards:
@@ -178,4 +202,12 @@ cards:
             variables:
               ulm_custom_card_esh_room_climate_entity: climate.ac_office
               ulm_custom_card_esh_room_cover_entity: !secret roller_bedroom_05
-            label: "YK"
+            label: |
+              [[[ 
+                var target = states['climate.ac_office'];
+                var temperature = target.attributes.current_temperature;
+                if (temperature == null) {
+                  var temperature = '-';
+                }
+                return "🌡️ " + temperature + hass.config.unit_system.temperature;
+              ]]]

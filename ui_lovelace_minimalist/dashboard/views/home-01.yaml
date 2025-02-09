@@ -86,7 +86,7 @@ cards:
             template:
               - card_esh_room_dev
               - yellow_on
-            name: Bedroom
+            name: Laly
             icon: mdi:bed
             tap_action:
               action: navigate
@@ -94,4 +94,12 @@ cards:
             variables:
               ulm_custom_card_esh_room_cover_entity: !secret roller_bedroom_03
               ulm_custom_card_esh_room_climate_entity: climate.ac_bedroom_02
-            label: "Laly"
+            label: |
+              [[[ 
+                var target = states['climate.ac_bedroom_02'];
+                var temperature = target.attributes.current_temperature;
+                if (temperature == null) {
+                  var temperature = '-';
+                }
+                return "🌡️ " + temperature + hass.config.unit_system.temperature;
+              ]]]
