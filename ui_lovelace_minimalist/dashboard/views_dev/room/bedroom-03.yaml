@@ -24,7 +24,7 @@ cards:
 
       - type: "custom:button-card"
         template: card_thermostat_ewpe
-        entity: climate.ac_bedroom_02
+        entity: climate.ac_laly
         variables:
           ulm_card_thermostat_name: AC
           ulm_card_thermostat_icon: mdi:power

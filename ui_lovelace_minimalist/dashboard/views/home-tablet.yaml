@@ -153,10 +153,10 @@ cards:
               navigation_path: bedroom-03
             variables:
               ulm_custom_card_esh_room_cover_entity: !secret roller_bedroom_03
-              ulm_custom_card_esh_room_climate_entity: climate.ac_bedroom_02
+              ulm_custom_card_esh_room_climate_entity: climate.ac_laly
             label: |
               [[[ 
-                var target = states['climate.ac_bedroom_02'];
+                var target = states['climate.ac_laly'];
                 var temperature = target.attributes.current_temperature;
                 if (temperature == null) {
                   var temperature = '-';
