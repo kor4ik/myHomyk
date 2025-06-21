@@ -57,7 +57,7 @@ cards:
             variables:
               ulm_custom_card_button_icon: mdi:menu
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD__INPUTS
+              ulm_custom_card_button_action: CMD__MENU
       # blank line #
       - type: "custom:button-card"
         color_type: blank-card
