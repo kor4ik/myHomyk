@@ -63,4 +63,4 @@ cards:
             entity: !secret tv_livingroom
             variables:
               ulm_card_button_navigate_name: TV
-              ulm_card_button_navigate_path: tv-samsung
+              ulm_card_button_navigate_path: tv-android
