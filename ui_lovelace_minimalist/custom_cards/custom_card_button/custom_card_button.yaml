@@ -29,8 +29,11 @@ custom_card_button:
           else if (variables.ulm_custom_card_button_action.startsWith("volume")) {
             return "media_player." + variables.ulm_custom_card_button_action;
           }
-          else if (variables.ulm_custom_card_button_action.startsWith("KEY")) {
+          else if (variables.ulm_custom_card_button_action.startsWith("CMD")) {
             return "remote.send_command";
+          }
+          else if (variables.ulm_custom_card_button_action.startsWith("com.")) {
+            return "media_player.play_media";
           }
         } else { return "media_player.turn_on"; }
       ]]]
@@ -43,8 +46,15 @@ custom_card_button:
         else if (variables.ulm_custom_card_button_action === "volume_mute") {
           return { is_volume_muted: false };
         }
-        else if (variables.ulm_custom_card_button_action.startsWith("KEY")) {
-          return { command: variables.ulm_custom_card_button_action };
+        else if (variables.ulm_custom_card_button_action.startsWith("CMD")) {
+          const command = variables.ulm_custom_card_button_action.split("__")[1]
+          return { command: command };
+        }
+        else if (variables.ulm_custom_card_button_action.startsWith("com.")) {
+          return { 
+            media_content_type: "app",
+            media_content_id: variables.ulm_custom_card_button_action 
+          };
         }
       ]]]
   icon: "[[[ return variables.ulm_custom_card_button_icon; ]]]"

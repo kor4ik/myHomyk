@@ -1,5 +1,5 @@
-title: tv-samsung
-path: tv-samsung
+title: tv-android
+path: tv-android
 cards:
   - type: vertical-stack
     cards:
@@ -41,30 +41,23 @@ cards:
             template: custom_card_button
             entity: !secret tv_livingroom_remote
             variables:
-              ulm_custom_card_button_icon: mdi:replay
+              ulm_custom_card_button_icon: mdi:arrow-left
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD_KEY_RETURN
-          - type: custom:button-card
-            template: custom_card_button
-            entity: !secret tv_livingroom_remote
-            variables:
-              ulm_custom_card_button_icon: mdi:location-exit
-              ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD_KEY_EXIT
+              ulm_custom_card_button_action: CMD__BACK
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:home
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD_KEY_HOME
+              ulm_custom_card_button_action: CMD__HOME
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:menu
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD_KEY_MENU
+              ulm_custom_card_button_action: CMD__INPUTS
       # blank line #
       - type: "custom:button-card"
         color_type: blank-card
@@ -77,28 +70,28 @@ cards:
             variables:
               ulm_custom_card_button_icon: mdi:netflix
               ulm_custom_card_button_icon_color: red
-              ulm_custom_card_button_action: source_Netflix
+              ulm_custom_card_button_action: com.netflix.ninja
           - type: custom:button-card
             template: custom_card_button
-            entity: !secret tv_livingroom
+            entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:desktop-classic
               ulm_custom_card_button_icon_color: deepskyblue
-              ulm_custom_card_button_action: source_HDMI
+              ulm_custom_card_button_action: com.hdmi
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom
             variables:
               ulm_custom_card_button_icon: mdi:youtube
               ulm_custom_card_button_icon_color: red
-              ulm_custom_card_button_action: source_YouTube
+              ulm_custom_card_button_action: com.google.android.youtube.tv
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom
             variables:
               ulm_custom_card_button_icon: mdi:spotify
               ulm_custom_card_button_icon_color: green
-              ulm_custom_card_button_action: source_Spotify - Music and Podcasts
+              ulm_custom_card_button_action: com.spotify
       # blank line #
       - type: "custom:button-card"
         color_type: blank-card
@@ -107,11 +100,11 @@ cards:
         cards:
           - type: custom:button-card
             template: custom_card_button
-            entity: !secret tv_livingroom
+            entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:volume-off
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: volume_mute
+              ulm_custom_card_button_action: CMD__MUTE
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom
@@ -142,7 +135,7 @@ cards:
             variables:
               ulm_custom_card_button_icon: mdi:chevron-up
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD_KEY_UP
+              ulm_custom_card_button_action: CMD__DPAD_UP
           - type: "custom:button-card"
             color_type: blank-card
           - type: "custom:button-card"
@@ -158,21 +151,21 @@ cards:
             variables:
               ulm_custom_card_button_icon: mdi:chevron-left
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD_KEY_LEFT
+              ulm_custom_card_button_action: CMD__DPAD_LEFT
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:circle-slice-8
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD_KEY_ENTER
+              ulm_custom_card_button_action: CMD__DPAD_CENTER
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom_remote
             variables:
               ulm_custom_card_button_icon: mdi:chevron-right
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD_KEY_RIGHT
+              ulm_custom_card_button_action: CMD__DPAD_RIGHT
           - type: "custom:button-card"
             color_type: blank-card
       # controll down #
@@ -188,7 +181,7 @@ cards:
             variables:
               ulm_custom_card_button_icon: mdi:chevron-down
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD_KEY_DOWN
+              ulm_custom_card_button_action: CMD__DPAD_DOWN
           - type: "custom:button-card"
             color_type: blank-card
           - type: "custom:button-card"
