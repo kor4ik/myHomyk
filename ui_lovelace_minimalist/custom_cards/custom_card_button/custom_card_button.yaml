@@ -32,6 +32,9 @@ custom_card_button:
           else if (variables.ulm_custom_card_button_action.startsWith("CMD")) {
             return "remote.send_command";
           }
+          else if (variables.ulm_custom_card_button_action.startsWith("custom")) {
+            return "remote.send_command";
+          }
           else if (variables.ulm_custom_card_button_action.startsWith("com.")) {
             return "media_player.play_media";
           }
@@ -43,9 +46,6 @@ custom_card_button:
           const source = variables.ulm_custom_card_button_action.split("_")[1]
           return { source: source };
         }
-        else if (variables.ulm_custom_card_button_action === "volume_mute") {
-          return { is_volume_muted: false };
-        }
         else if (variables.ulm_custom_card_button_action.startsWith("CMD")) {
           const command = variables.ulm_custom_card_button_action.split("__")[1]
           return { command: command };
@@ -54,6 +54,35 @@ custom_card_button:
           return { 
             media_content_type: "app",
             media_content_id: variables.ulm_custom_card_button_action 
+          };
+        }
+        else if (variables.ulm_custom_card_button_action === "volume_mute") {
+          return { is_volume_muted: false };
+        }
+        else if (variables.ulm_custom_card_button_action === "custom_settings") {
+          return { command: [
+                    "HOME",
+                    "DPAD_RIGHT",
+                    "DPAD_RIGHT",
+                    "DPAD_RIGHT",
+                    "DPAD_RIGHT"
+                  ]
+          };
+        }
+        else if (variables.ulm_custom_card_button_action === "custom_hdmi1") {
+          return { command: [
+                    "HOME",
+                    "DPAD_RIGHT",
+                    "DPAD_RIGHT",
+                    "DPAD_RIGHT",
+                    "DPAD_RIGHT",
+                    "DPAD_DOWN",
+                    "DPAD_CENTER",
+                    "DPAD_RIGHT",
+                    "DPAD_RIGHT",
+                    "DPAD_RIGHT",
+                    "DPAD_CENTER"
+                  ]
           };
         }
       ]]]

@@ -55,9 +55,9 @@ cards:
             template: custom_card_button
             entity: !secret tv_livingroom_remote
             variables:
-              ulm_custom_card_button_icon: mdi:menu
+              ulm_custom_card_button_icon: mdi:cog
               ulm_custom_card_button_icon_color: lightsteelblue
-              ulm_custom_card_button_action: CMD__INPUTS
+              ulm_custom_card_button_action: custom_settings
       # blank line #
       - type: "custom:button-card"
         color_type: blank-card
@@ -77,7 +77,7 @@ cards:
             variables:
               ulm_custom_card_button_icon: mdi:desktop-classic
               ulm_custom_card_button_icon_color: deepskyblue
-              ulm_custom_card_button_action: com.hdmi
+              ulm_custom_card_button_action: custom_hdmi1
           - type: custom:button-card
             template: custom_card_button
             entity: !secret tv_livingroom
