@@ -20,11 +20,11 @@ cards:
         use_military: true
         hide_seconds: false
         bold_clock: false
-        font_size: 7rem
+        font_size: 5rem
         paddingLeft_size: 32px
         paddingRight_size: 32px
-        paddingTop_size: 32px
-        paddingBottom_size: 28px
+        paddingTop_size: 0px
+        paddingBottom_size: 0px
       - type: weather-forecast
         entity: weather.forecast_home
         name: Home

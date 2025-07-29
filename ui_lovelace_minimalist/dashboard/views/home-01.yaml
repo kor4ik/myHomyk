@@ -3,39 +3,6 @@ path: home
 cards:
   - type: vertical-stack
     cards:
-      # card_esh_welcome #
-      - type: "custom:button-card"
-        template: "card_esh_welcome"
-        triggers_update: "input_boolean.mini_toggle"
-        variables:
-          ulm_card_esh_welcome_collapse: input_boolean.mini_toggle
-          ulm_weather: weather.forecast_home
-          entity_1:
-            nav: "house"
-            icon: "mdi:home"
-            name: "House"
-            color: "blue"
-          entity_2:
-            nav: "lights"
-            icon: "mdi:lightbulb"
-            name: "Lights"
-            color: "yellow"
-          entity_3:
-            nav: "security"
-            icon: "mdi:shield"
-            name: Secure
-            color: "green"
-          entity_4:
-            nav: "network"
-            icon: "mdi:nas"
-            name: Lab
-            color: "purple"
-          entity_5:
-            nav: "network"
-            icon: "mdi:flask"
-            name: Lab
-            color: "red"
-      # card_person #
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
