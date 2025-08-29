@@ -420,7 +420,7 @@ card_broadlink_tadiran:
             - grid-template-areas: >
                 [[[
                       var areas = [];
-                      if (states[entity.entity_id].attributes.fan_modes.includes("auto")) {
+                      if (states[entity.entity_id].attributes.fan_modes && states[entity.entity_id].attributes.fan_modes.includes("auto")) {
                           areas.push("fan_auto");
                       }
                       if (states[entity.entity_id].attributes.hvac_modes.includes("heat")) {
@@ -434,7 +434,7 @@ card_broadlink_tadiran:
             - grid-template-columns: >
                 [[[
                       var columns = [];
-                      if (states[entity.entity_id].attributes.fan_modes.includes("auto")) {
+                      if (states[entity.entity_id].attributes.fan_modes && states[entity.entity_id].attributes.fan_modes.includes("auto")) {
                           columns.push("1fr");
                       }
                       if (states[entity.entity_id].attributes.hvac_modes.includes("heat")) {
@@ -455,7 +455,7 @@ card_broadlink_tadiran:
             fan_auto:
               - display: >
                   [[[
-                    if (states[entity.entity_id].attributes.fan_modes.includes("auto")) {
+                    if (states[entity.entity_id].attributes.fan_modes && states[entity.entity_id].attributes.fan_modes.includes("auto")) {
                         return "block";
                     } else {
                         return "none";
