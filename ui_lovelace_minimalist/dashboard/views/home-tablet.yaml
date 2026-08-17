@@ -2,16 +2,31 @@ title: "Home"
 path: home
 type: custom:grid-layout
 layout:
-  grid-template-columns: 45% 55%
+  # --- Landscape tablet 1280x800 (default) ---
+  grid-template-columns: 38% 62%
   grid-template-rows: auto
+  grid-gap: 6px
+  padding: 6px
   grid-template-areas: |
     "left right"
   mediaquery:
-    "(max-width: 835px)":
+    # Portrait 800x1280 -> single column, stacked
+    "(max-width: 900px)":
       grid-template-columns: 100%
+      grid-template-rows: auto
+      grid-gap: 6px
+      padding: 6px
       grid-template-areas: |
         "left" 
         "right"
+    # Landscape tablet / small laptop
+    "(max-width: 1400px)":
+      grid-template-columns: 38% 62%
+      grid-template-rows: auto
+      grid-gap: 6px
+      padding: 6px
+      grid-template-areas: |
+        "left right"
 cards:
   - type: vertical-stack
     cards:
@@ -20,9 +35,9 @@ cards:
         use_military: true
         hide_seconds: false
         bold_clock: false
-        font_size: 5rem
-        paddingLeft_size: 32px
-        paddingRight_size: 32px
+        font_size: 3.2rem
+        paddingLeft_size: 16px
+        paddingRight_size: 16px
         paddingTop_size: 0px
         paddingBottom_size: 0px
       - type: weather-forecast
@@ -31,6 +46,7 @@ cards:
         show_current: true
         show_forecast: true
         forecast_type: daily
+        forecast_slots: 4
         # secondary_info_attribute: sun.sun
       - type: "custom:button-card"
         template: custom_card_camera
@@ -45,47 +61,39 @@ cards:
   - type: vertical-stack
     cards:
       # card_person #
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_person
-            tap_action:
-              action: navigate
-              navigation_path: dad
-            variables:
-              ulm_card_person_entity: !secret dad_phone
-              ulm_card_person_use_entity_picture: true
-              ulm_card_person_icon: mdi:face-man
-              ulm_card_person_battery: !secret dad_phone_battery_level
-              # ulm_card_person_zone1: zone.work
-          - type: "custom:button-card"
-            template: card_person
-            tap_action:
-              action: navigate
-              navigation_path: mom
-            variables:
-              ulm_card_person_entity: !secret mom_phone
-              ulm_card_person_use_entity_picture: true
-              ulm_card_person_icon: mdi:face-woman
-              ulm_card_person_battery: !secret mom_phone_battery_level
-          # - type: horizontal-stack
-          #   cards:
-          - type: "custom:button-card"
-            template: card_person
-            tap_action:
-              action: navigate
-              navigation_path: 01_kid
-            variables:
-              ulm_card_person_entity: !secret 01_kid_phone
-              ulm_card_person_use_entity_picture: true
-              ulm_card_person_icon: mdi:face-woman
-              ulm_card_person_battery: !secret 01_kid_phone_battery_level
-          # - type: "custom:button-card"
-          #   color_type: blank-card
-      # card_title devices #
-      - type: "custom:button-card"
-        template: card_title
-        name: Devices
+      # - type: horizontal-stack
+      #   cards:
+      # - type: "custom:button-card"
+      #   template: card_person
+      #   tap_action:
+      #     action: navigate
+      #     navigation_path: dad
+      #   variables:
+      #     ulm_card_person_entity: !secret dad_phone
+      #     ulm_card_person_use_entity_picture: true
+      #     ulm_card_person_icon: mdi:face-man
+      #     ulm_card_person_battery: !secret dad_phone_battery_level
+      #     # ulm_card_person_zone1: zone.work
+      # - type: "custom:button-card"
+      #   template: card_person
+      #   tap_action:
+      #     action: navigate
+      #     navigation_path: mom
+      #   variables:
+      #     ulm_card_person_entity: !secret mom_phone
+      #     ulm_card_person_use_entity_picture: true
+      #     ulm_card_person_icon: mdi:face-woman
+      #     ulm_card_person_battery: !secret mom_phone_battery_level
+      # - type: "custom:button-card"
+      #   template: card_person
+      #   tap_action:
+      #     action: navigate
+      #     navigation_path: 01_kid
+      #   variables:
+      #     ulm_card_person_entity: !secret 01_kid_phone
+      #     ulm_card_person_use_entity_picture: true
+      #     ulm_card_person_icon: mdi:face-woman
+      #     ulm_card_person_battery: !secret 01_kid_phone_battery_level
       # devices lock & water_heater #
       - type: horizontal-stack
         cards:
@@ -113,35 +121,46 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Rooms
-        # card_esh_room living room #
+      # card_esh_room living room - full width #
+      - type: "custom:button-card"
+        template:
+          - card_esh_room_dev
+          - yellow_on
+        name: Living Room
+        icon: mdi:sofa
+        tap_action:
+          action: navigate
+          navigation_path: livingroom
+        variables:
+          ulm_custom_card_esh_room_light_entity: !secret garden_light_trees
+          ulm_custom_card_esh_room_climate_entity: climate.ac_main
+          ulm_custom_card_esh_room_cover_entity: group.rollers_livingroom
+          temperature_entity: !secret bathroom_temperature
+        label: |
+          [[[ 
+            var target = states['climate.ac_main'];
+            var temperature = target.attributes.current_temperature;
+            if (temperature == null) {
+              var temperature = '-';
+            }
+            return "🌡️ " + temperature + hass.config.unit_system.temperature;
+          ]]]
+      # card_esh_room bedroom main & laly #
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template:
               - card_esh_room_dev
               - yellow_on
-            name: Living Room
-            icon: mdi:sofa
+            name: Bedroom
+            icon: mdi:bed
             tap_action:
               action: navigate
-              navigation_path: livingroom
+              navigation_path: bedroom-01
             variables:
-              ulm_custom_card_esh_room_light_entity: !secret garden_light_trees
-              ulm_custom_card_esh_room_climate_entity: climate.ac_main
-              ulm_custom_card_esh_room_cover_entity: group.rollers_livingroom
-              temperature_entity: !secret bathroom_temperature
-            label: |
-              [[[ 
-                var target = states['climate.ac_main'];
-                var temperature = target.attributes.current_temperature;
-                if (temperature == null) {
-                  var temperature = '-';
-                }
-                return "🌡️ " + temperature + hass.config.unit_system.temperature;
-              ]]]
-      # card_esh_room laly & guest #
-      - type: horizontal-stack
-        cards:
+              ulm_custom_card_esh_room_light_entity: group.lights_bedroom_01
+              ulm_custom_card_esh_room_climate_entity: climate.ac_bedroom_main
+            label: Main
           - type: "custom:button-card"
             template:
               - card_esh_room_dev
@@ -163,6 +182,9 @@ cards:
                 }
                 return "🌡️ " + temperature + hass.config.unit_system.temperature;
               ]]]
+      # card_esh_room guest & office #
+      - type: horizontal-stack
+        cards:
           - type: "custom:button-card"
             template:
               - card_esh_room_dev
@@ -184,22 +206,6 @@ cards:
                 }
                 return "🌡️ " + temperature + hass.config.unit_system.temperature;
               ]]]
-      # card_esh_room bedroom main & office #
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template:
-              - card_esh_room_dev
-              - yellow_on
-            name: Bedroom
-            icon: mdi:bed
-            tap_action:
-              action: navigate
-              navigation_path: bedroom-01
-            variables:
-              ulm_custom_card_esh_room_light_entity: group.lights_bedroom_01
-              ulm_custom_card_esh_room_climate_entity: climate.ac_bedroom_main
-            label: Main
           - type: "custom:button-card"
             template:
               - card_esh_room_dev
