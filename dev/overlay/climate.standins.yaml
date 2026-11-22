@@ -1,0 +1,12 @@
+
+- platform: standin
+  name: ac_main
+
+- platform: standin
+  name: ac_laly
+
+- platform: standin
+  name: ac_guest
+
+- platform: standin
+  name: ac_office

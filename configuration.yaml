@@ -42,25 +42,9 @@ frontend:
 automation: !include automations.yaml
 climate: !include climate.yaml
 group: !include groups.yaml
-lock: !include lock.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 template: !include sensors.yaml
 
 smartir:
   check_updates: false
-
-automation wake_up_screen:
-  - alias: Wake up screenblet on motion
-    description: Wake up the device screen when motion is detected
-    initial_state: true
-    triggers:
-      trigger: state
-      entity_id: !secret camera_front_door_motion
-      to: "on"
-    condition: []
-    actions:
-      action: !secret tablet_notify
-      data:
-        message: command_screen_on
-    mode: single

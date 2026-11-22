@@ -1,23 +1,26 @@
-- platform: gree
-  name: ac_guest
-  host: !secret ac_bedroom_04_host
-  port: 7000
-  mac: !secret ac_bedroom_04_mac
-  target_temp_step: 1
+# Gree: add via Settings > Devices & Services, rename entity to match name below
+# - platform: gree
+#   name: ac_guest
+#   host: !secret ac_bedroom_04_host
+#   port: 7000
+#   mac: !secret ac_bedroom_04_mac
+#   target_temp_step: 1
 
-- platform: gree
-  name: ac_laly
-  host: !secret ac_bedroom_03_host
-  port: 7000
-  mac: !secret ac_bedroom_03_mac
-  target_temp_step: 1
+# Gree: add via Settings > Devices & Services, rename entity to match name below
+# - platform: gree
+#   name: ac_laly
+#   host: !secret ac_bedroom_03_host
+#   port: 7000
+#   mac: !secret ac_bedroom_03_mac
+#   target_temp_step: 1
 
-- platform: gree
-  name: ac_office
-  host: !secret ac_bedroom_05_host
-  port: 7000
-  mac: !secret ac_bedroom_05_mac
-  target_temp_step: 1
+# Gree: add via Settings > Devices & Services, rename entity to match name below
+# - platform: gree
+#   name: ac_office
+#   host: !secret ac_bedroom_05_host
+#   port: 7000
+#   mac: !secret ac_bedroom_05_mac
+#   target_temp_step: 1
 
 - platform: smartir
   name: ac_livingroom

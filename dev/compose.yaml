@@ -1,0 +1,12 @@
+# From dev/: ./ha-dev.sh prepare, then compose up -d, then ./ha-dev.sh bootstrap.
+services:
+  homeassistant:
+    container_name: ${HA_NAME:?run ./ha-dev.sh prepare first}
+    image: ghcr.io/home-assistant/home-assistant:${HA_VERSION:?run ./ha-dev.sh prepare first}
+    ports:
+      - "127.0.0.1:${HA_PORT:?run ./ha-dev.sh prepare first}:8123"
+    environment:
+      TZ: ${HA_TZ:?run ./ha-dev.sh prepare first}
+    volumes:
+      - ./.work/config:/config
+    restart: "no"

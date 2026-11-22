@@ -1,1 +1,13 @@
-[]
+- alias: Wake up screenblet on motion
+  description: Wake up the device screen when motion is detected
+  initial_state: true
+  triggers:
+    - trigger: state
+      entity_id: !secret camera_front_door_motion
+      to: "on"
+  conditions: []
+  actions:
+    - action: !secret tablet_notify
+      data:
+        message: command_screen_on
+  mode: single

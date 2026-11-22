@@ -1,0 +1,10 @@
+{
+  "domain": "standin",
+  "name": "Dev stand-ins",
+  "version": "1.0.0",
+  "documentation": "https://github.com/",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": [],
+  "iot_class": "calculated"
+}
