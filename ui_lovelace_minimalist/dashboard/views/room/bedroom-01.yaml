@@ -32,7 +32,7 @@ cards:
           ulm_card_cover_name: Roller
           ulm_card_cover_enable_controls: true
           ulm_card_cover_enable_slider: true
-          ulm_card_cver_favorite_percentage: 45
+          ulm_card_cover_favorite_percentage: 45
           ulm_card_cover_color: yellow
       - type: "custom:button-card"
         template: card_power_outlet

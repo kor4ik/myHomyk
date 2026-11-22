@@ -1,10 +1,10 @@
 find_my_phone_dad:
-    alias: Find My Phone
+    alias: Find My Phone (Dad)
     sequence:
       - repeat:
           count: 5
           sequence:
-            - service: !secret dad_phone_notify
+            - action: !secret dad_phone_notify
               data:
                 title: Find my phone
                 message: Home Assistant is searching your phone!
@@ -15,12 +15,12 @@ find_my_phone_dad:
             - delay:
                 seconds: 6
 find_my_phone_mom:
-    alias: Find My Phone
+    alias: Find My Phone (Mom)
     sequence:
       - repeat:
           count: 5
           sequence:
-            - service: !secret mom_phone_notify
+            - action: !secret mom_phone_notify
               data:
                 title: Find my phone
                 message: Home Assistant is searching your phone!
@@ -31,12 +31,12 @@ find_my_phone_mom:
             - delay:
                 seconds: 6
 find_my_phone_01_kid:
-    alias: Find My Phone
+    alias: Find My Phone (Kid)
     sequence:
       - repeat:
           count: 5
           sequence:
-            - service: !secret 01_kid_phone_notify
+            - action: !secret 01_kid_phone_notify
               data:
                 title: Find my phone
                 message: Home Assistant is searching your phone!

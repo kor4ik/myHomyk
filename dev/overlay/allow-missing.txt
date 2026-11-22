@@ -1,0 +1,2 @@
+# entities that need a real integration, tolerated by the dashboard check
+remote.living_room

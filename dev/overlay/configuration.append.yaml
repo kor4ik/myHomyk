@@ -1,0 +1,10 @@
+
+demo:
+
+input_boolean:
+  mini_toggle:
+    name: Mini toggle
+
+weather:
+  - platform: standin
+    name: forecast_home

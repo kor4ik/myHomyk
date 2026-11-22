@@ -1,0 +1,7 @@
+{"version":1,"minor_version":1,"key":"lovelace_resources","data":{"items":[
+{"id":"r1","url":"/local/community/button-card/button-card.js","type":"module"},
+{"id":"r2","url":"/local/community/layout-card/layout-card.js","type":"module"},
+{"id":"r3","url":"/local/community/state-switch/state-switch.js","type":"module"},
+{"id":"r4","url":"/local/community/simple-clock-card/simple-clock-card.js","type":"module"},
+{"id":"r5","url":"/local/community/my-cards/my-slider.js","type":"module"}
+]}}

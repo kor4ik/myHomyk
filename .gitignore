@@ -19,3 +19,12 @@ secrets.yaml
 
 # ignore todos
 .shopping_list*
+
+# tooling / scratch
+.boost/
+.playwright-mcp/
+.ha_run.lock
+dev/.work*/
+.cache/
+dev/node_modules/
+dev/.env
